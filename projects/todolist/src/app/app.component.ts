@@ -8,8 +8,9 @@ import { TODOS } from './mock-todo';
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   template: `
+  <div class="container">
    <h1> Liste de choses à faire</h1>
-   <ul *ngFor="let todos of todolist>
+   <ul *ngFor="let todos of todoList">
   <li *ngIf="todos.isCompleted">{{todos.title}}</li>
    </ul>
    </div>
@@ -17,13 +18,13 @@ import { TODOS } from './mock-todo';
   styles: []
 })
 export class AppComponent {
-  
   todoList = TODOS;
-  constructor(){
+  constructor(){}
+  ngOnInit(){
     console.table(this.todoList);
     this.selectTodo(8);
-   }
-   selectTodo(id: number) {
-    console.table(this.todoList[id-1]);
-   }
   }
+  selectTodo(id:number){
+    console.table(this.todoList[id-1]);
+  }
+}
