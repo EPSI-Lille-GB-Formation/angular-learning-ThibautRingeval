@@ -9,21 +9,10 @@ import { TODOS } from './mock-todo';
   imports: [CommonModule, RouterOutlet],
   template: `
    <h1> Liste de choses à faire</h1>
-
-   <ul>
-   <li>{{todoList[0].title}}</li
-   <li>{{todoList[1].title}}</li>
-   <li>{{todoList[2].title}}</li>
-   <li>{{todoList[3].title}}</li>
-   <li>{{todoList[4].title}}</li>
-   <li>{{todoList[5].title}}</li>
-   <li>{{todoList[6].title}}</li>
-   <li>{{todoList[7].title}}</li>
-   <li>{{todoList[8].title}}</li>
-   <li>{{todoList[9].title}}</li>
+   <ul *ngFor="let todos of todolist>
+  <li *ngIf="todos.isCompleted">{{todos.title}}</li>
    </ul>
    </div>
-
    `,
   styles: []
 })
@@ -35,6 +24,6 @@ export class AppComponent {
     this.selectTodo(8);
    }
    selectTodo(id: number) {
-    console.table(this.todoList(id-1))
+    console.table(this.todoList[id-1]);
    }
   }
